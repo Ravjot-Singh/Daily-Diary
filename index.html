@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Blog Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo"><img class="logo-img" src="/assets/logo_gndec.webp" alt=""> TR-102</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Daily Diary by Ravjot Singh , URN-2302646 , GNDEC </h1>
+    <p> training at Ryaz.io Technologies, Ludhiana </p>
+  </header>
+
+  <main class="blog-container">
+
+  </main>
+
+  <script>
+
+    const blogs = [
+      { day: 1, cover: "cover1.jpeg" },
+      { day: 2, cover: "cover2.jpeg" },
+      { day: 3, cover: "cover3.jpeg" },
+      { day: 4, cover: "cover1.jpeg" },
+      { day: 5, cover: "cover2.jpeg" },
+      { day: 6, cover: "cover3.jpeg" },
+      { day: 7, cover: "cover1.jpeg" },
+      { day: 8, cover: "cover2.jpeg" },
+      { day: 9, cover: "cover3.jpeg" },
+      { day: 10, cover: "cover1.jpeg" }
+    ];
+
+    const container = document.querySelector('.blog-container');
+
+    blogs.forEach(({ day, cover }) => {
+      const card = document.createElement("div");
+      card.className = "blog-card";
+      card.onclick = () => openBlog(`blogs/Blog${day}.pdf`);
+      card.innerHTML = `
+    <img src="assets/${cover}" alt="Blog ${day}">
+    <h2>Day ${day}</h2>
+  `;
+      container.appendChild(card);
+    });
+
+    function openBlog(url) {
+      window.open(url, "_blank");
+    }
+
+
+
+  </script>
+</body>
+
+</html>
