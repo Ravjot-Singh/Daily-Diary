@@ -20,6 +20,14 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+.blog-heading{
+  margin: auto;
+  padding: 1.3rem;
+  text-align: center;
+  background-color: #ebedee;
+  
+
+}
 
 .logo {
   font-size: 1.5rem;
@@ -99,4 +107,37 @@ nav {
   font-size: 1.1rem;
   text-align: center;
   color: #2c3e50;
+}
+
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+
+.button-container button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-container button:hover {
+  background-color: #3498db;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 500px) {
+  .button-container button {
+    width: 100%;
+    text-align: center;
+  }
 }

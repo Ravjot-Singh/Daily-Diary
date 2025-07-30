@@ -23,9 +23,19 @@
     <p> training at Ryaz.io Technologies, Ludhiana </p>
   </header>
 
-  <main class="blog-container">
+  <main>
+    
+  <div class="button-container">
+    <button onclick="openBlog('blogs/report-tr102.pdf')">📄 View Final Report</button>
+    <button onclick="openBlog('blogs/Certificate.pdf')">🎓 View Certificate</button>
+  </div>
 
-  </main>
+  <h1 class="blog-heading">Blogs</h1>
+
+  <div class="blog-container">
+   
+  </div>
+</main>
 
   <script>
 
@@ -54,10 +64,7 @@
       { day: 22, cover: "cover1.jpeg" },
       { day: 23, cover: "cover2.jpeg" },
       { day: 24, cover: "cover3.jpeg" },
-      { day: 25, cover: "cover1.jpeg" },
-      { day: 26, cover: "cover2.jpeg" },
-      { day: 27, cover: "cover3.jpeg" },
-      { day: 28, cover: "cover1.jpeg" },
+      
     ];
 
     const container = document.querySelector('.blog-container');
