@@ -14,58 +14,62 @@
     <div class="logo"><img class="logo-img" src="/assets/logo_gndec.webp" alt=""> TR-102</div>
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
-
     </ul>
   </nav>
 
   <header class="hero">
-    <h1>Daily Diary by Ravjot Singh , URN-2302646 , GNDEC </h1>
-    <p> training at Ryaz.io Technologies, Ludhiana </p>
+    <h1>Daily Diary by Ravjot Singh, URN-2302646, GNDEC</h1>
+    <p>Training at Ryaz.io Technologies, Ludhiana</p>
   </header>
 
   <main>
-    
-  <div class="button-container">
-    <button onclick="openBlog('blogs/report-tr102.pdf')">📄 View Final Report</button>
-    <button onclick="openBlog('blogs/Certificate.pdf')">🎓 View Certificate</button>
-  </div>
 
-  <h1 class="blog-heading">Blogs</h1>
+    <div class="button-container">
+      <button onclick="openBlog('blogs/report-tr102.pdf')">📄 View Final Report</button>
+      <button onclick="openBlog('blogs/Certificate.pdf')">🎓 View Certificate</button>
+    </div>
 
-  <div class="blog-container">
-   
-  </div>
-</main>
+    <h1 class="blog-heading">Blogs</h1>
+
+    <div class="blog-container"></div>
+
+    <div class="summary-button-container">
+      <button onclick="toggleSummary()">🧩 Show Project Summaries</button>
+    </div>
+
+    <div class="summary-section" id="project-summary" style="display: none;">
+      <h2>🚀 Project Summaries</h2>
+
+      <div class="project">
+        <h3>1. URL Shortener</h3>
+        <ul>
+          <li>Built with Node.js, Express, MongoDB</li>
+          <li>Converts long URLs to short slugs</li>
+          <li>Handles redirection</li>
+          
+        </ul>
+        <a href="https://github.com/Ravjot-Singh/url-shortner" target="_blank">🔗 View Source Code</a>
+      </div>
+
+      <div class="project">
+        <h3>2. Messaging App</h3>
+        <ul>
+          <li>Real-time chat with Socket.IO & Node.js</li>
+          <li>Supports private/public chats</li>
+          <li>MongoDB stores messages with user refs</li>
+          <li>Edit/delete and recovery features</li>
+        </ul>
+        <a href="https://github.com/Ravjot-Singh/message" target="_blank">🔗 View Source Code</a>
+      </div>
+    </div>
+
+  </main>
 
   <script>
-
-    const blogs = [
-      { day: 1, cover: "cover1.jpeg" },
-      { day: 2, cover: "cover2.jpeg" },
-      { day: 3, cover: "cover3.jpeg" },
-      { day: 4, cover: "cover1.jpeg" },
-      { day: 5, cover: "cover2.jpeg" },
-      { day: 6, cover: "cover3.jpeg" },
-      { day: 7, cover: "cover1.jpeg" },
-      { day: 8, cover: "cover2.jpeg" },
-      { day: 9, cover: "cover3.jpeg" },
-      { day: 10, cover: "cover1.jpeg" },
-      { day: 11, cover: "cover2.jpeg" },
-      { day: 12, cover: "cover3.jpeg" },
-      { day: 13, cover: "cover1.jpeg" },
-      { day: 14, cover: "cover2.jpeg" },
-      { day: 15, cover: "cover3.jpeg" },
-      { day: 16, cover: "cover1.jpeg" },
-      { day: 17, cover: "cover2.jpeg" },
-      { day: 18, cover: "cover3.jpeg" },
-      { day: 19, cover: "cover1.jpeg" },
-      { day: 20, cover: "cover2.jpeg" },
-      { day: 21, cover: "cover3.jpeg" },
-      { day: 22, cover: "cover1.jpeg" },
-      { day: 23, cover: "cover2.jpeg" },
-      { day: 24, cover: "cover3.jpeg" },
-      
-    ];
+    const blogs = Array.from({ length: 24 }, (_, i) => ({
+      day: i + 1,
+      cover: `cover${(i % 3) + 1}.jpeg`
+    }));
 
     const container = document.querySelector('.blog-container');
 
@@ -74,9 +78,9 @@
       card.className = "blog-card";
       card.onclick = () => openBlog(`blogs/Blog${day}.pdf`);
       card.innerHTML = `
-    <img src="assets/${cover}" alt="Blog ${day}">
-    <h2>Day ${day}</h2>
-  `;
+        <img src="assets/${cover}" alt="Blog ${day}">
+        <h2>Day ${day}</h2>
+      `;
       container.appendChild(card);
     });
 
@@ -84,9 +88,12 @@
       window.open(url, "_blank");
     }
 
-
-
+    function toggleSummary() {
+      const section = document.getElementById("project-summary");
+      section.style.display = section.style.display === "none" ? "block" : "none";
+    }
   </script>
+
 </body>
 
 </html>
