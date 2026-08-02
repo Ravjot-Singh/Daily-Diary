@@ -11,7 +11,7 @@
 <body>
 
   <nav>
-    <div class="logo"><img class="logo-img" src="/assets/logo_gndec.webp" alt=""> TR-102</div>
+    <div class="logo"><img class="logo-img" src="/assets/logo_gndec.webp" alt=""> TR-103</div>
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
     </ul>
@@ -19,64 +19,35 @@
 
   <header class="hero">
     <h1>Daily Diary by Ravjot Singh, URN-2302646, GNDEC</h1>
-    <p>Training at Ryaz.io Technologies, Ludhiana</p>
+    <p>Training at GNDEC, Ludhiana</p>
   </header>
 
   <main>
 
     <div class="button-container">
-      <button onclick="openBlog('blogs/report-tr102.pdf')">📄 View Final Report</button>
-      <button onclick="openBlog('blogs/Training Certifcate.pdf')">🎓 View Certificate</button>
+      <button onclick="openBlog('')">📄 View Final Report</button>
+      <button onclick="openBlog('/docs/certificate.pdf')">🎓 View Certificate</button>
     </div>
 
-    <h1 class="blog-heading">Blogs</h1>
+    <h1 class="blog-heading">Days Report</h1>
 
     <div class="blog-container"></div>
-
-    <div class="summary-button-container">
-      <button onclick="toggleSummary()">🧩 Show Project Summaries</button>
-    </div>
-
-    <div class="summary-section" id="project-summary" style="display: none;">
-      <h2>🚀 Project Summaries</h2>
-
-      <div class="project">
-        <h3>1. URL Shortener</h3>
-        <ul>
-          <li>Built with Node.js, Express, MongoDB</li>
-          <li>Converts long URLs to short slugs</li>
-          <li>Handles redirection</li>
-          
-        </ul>
-        <a href="https://github.com/Ravjot-Singh/url-shortner" target="_blank">🔗 View Source Code</a>
-      </div>
-
-      <div class="project">
-        <h3>2. Messaging App</h3>
-        <ul>
-          <li>Real-time chat with Socket.IO & Node.js</li>
-          <li>Supports private/public chats</li>
-          <li>MongoDB stores messages with user refs</li>
-          <li>Edit/delete and recovery features</li>
-        </ul>
-        <a href="https://github.com/Ravjot-Singh/message" target="_blank">🔗 View Source Code</a>
-      </div>
-    </div>
 
   </main>
 
   <script>
-    const blogs = Array.from({ length: 24 }, (_, i) => ({
+    const docs = Array.from({ length: 17 }, (_, i) => ({
       day: i + 1,
+      file: `docs/day-${i + 1}.pdf`,
       cover: `cover${(i % 3) + 1}.jpeg`
     }));
 
     const container = document.querySelector('.blog-container');
 
-    blogs.forEach(({ day, cover }) => {
+    docs.forEach(({ day, file, cover }) => {
       const card = document.createElement("div");
       card.className = "blog-card";
-      card.onclick = () => openBlog(`blogs/Blog${day}.pdf`);
+      card.onclick = () => openBlog(file);
       card.innerHTML = `
         <img src="assets/${cover}" alt="Blog ${day}">
         <h2>Day ${day}</h2>
@@ -85,12 +56,8 @@
     });
 
     function openBlog(url) {
+      if (!url) return;
       window.open(url, "_blank");
-    }
-
-    function toggleSummary() {
-      const section = document.getElementById("project-summary");
-      section.style.display = section.style.display === "none" ? "block" : "none";
     }
   </script>
 
